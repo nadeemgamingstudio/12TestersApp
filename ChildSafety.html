@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Child Safety Standards – 12 Testers App</title>
+  <!-- Google Fonts: Inter (same as privacy policy) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #94a3b8;
+      --accent: #00bfa6;
+      --accent-2: #6c5ce7;
+      --glass: rgba(255,255,255,0.03);
+      --maxwidth: 980px;
+      --radius: 14px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: linear-gradient(180deg, #071026 0%, #08102a 55%, #05111f 100%);
+      color: #E6EEF3;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      padding: 40px 16px;
+    }
+    .container {
+      max-width: var(--maxwidth);
+      margin: 0 auto;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+      overflow: hidden;
+    }
+    header {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      padding: 28px 36px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-bottom: 1px solid rgba(255,255,255,0.02);
+      flex-wrap: wrap;
+    }
+    .logo {
+      width: 84px;
+      height: 84px;
+      border-radius: 14px;
+      overflow: hidden;
+      flex: 0 0 84px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid;
+      place-items: center;
+      box-shadow: 0 6px 18px rgba(12,14,30,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .logo img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+    .hdr-text h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      letter-spacing: -0.3px;
+      font-weight: 700;
+    }
+    .hdr-text p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .badge {
+      display: inline-flex;
+      background: rgba(255,255,255,0.05);
+      padding: 4px 12px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: 10px;
+    }
+    main {
+      padding: 32px 36px;
+    }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(255,255,255,0.02);
+      transition: all 0.2s ease;
+    }
+    .card:hover {
+      border-color: rgba(0,191,166,0.15);
+      background: rgba(255,255,255,0.01);
+    }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.02);
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #ffffff;
+      letter-spacing: -0.2px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 20px 0 10px 0;
+      color: #E8FFF9;
+    }
+    p {
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+    ul, ol {
+      color: var(--muted);
+      margin: 12px 0 12px 24px;
+      line-height: 1.55;
+    }
+    li {
+      margin: 6px 0;
+    }
+    .highlight {
+      background: rgba(0,191,166,0.08);
+      border-left: 3px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+    }
+    .contact-block {
+      background: rgba(255,255,255,0.02);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 20px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .contact-info {
+      font-weight: 500;
+    }
+    .contact-info a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(0,191,166,0.4);
+    }
+    .btn {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #022027;
+      padding: 10px 20px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+    .btn:hover {
+      opacity: 0.9;
+      transform: scale(0.98);
+    }
+    footer {
+      padding: 20px 36px;
+      border-top: 1px solid rgba(255,255,255,0.02);
+      color: var(--muted);
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    @media (max-width: 700px) {
+      header { padding: 20px 24px; }
+      main { padding: 20px 24px; }
+      .card { padding: 18px 20px; }
+      h2 { font-size: 1.3rem; }
+    }
+    hr {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      margin: 20px 0;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 16px;
+    }
+    .info-box {
+      background: rgba(255,255,255,0.01);
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.02);
+    }
+    .info-box strong {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">
+      <img src="https://github.com/nadeemgamingstudio/12TestersApp/blob/main/Logo.png?raw=true" alt="12 Testers App Logo" />
+    </div>
+    <div class="hdr-text">
+      <h1>Child Safety Standards</h1>
+      <p><strong>12 Testers App</strong> — Nadeem Gaming Studio</p>
+      <div class="badge">Zero tolerance for child exploitation • CSAE compliant</div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Introduction / Commitment -->
+    <div class="card">
+      <div class="kicker">Our Commitment</div>
+      <h2>Protecting children is our highest priority</h2>
+      <p><strong>12 Testers App</strong> is a community that connects app developers and testers. We have <strong>zero tolerance</strong> for any content or activity that involves child sexual abuse or exploitation (CSAE). We strictly prohibit grooming, sexually explicit material involving minors, or any interaction that endangers children. Our platform is not directed to children under 13, and we take active measures to detect, remove, and report abusive content.</p>
+      <div class="highlight">
+        <strong>✅ Immediate action:</strong> If we discover any CSAE content, we will:
+        <ul style="margin-top: 8px;">
+          <li>Immediately remove the content and ban the responsible user(s).</li>
+          <li>Report to the <strong>National Center for Missing & Exploited Children (NCMEC)</strong>.</li>
+          <li>Cooperate fully with law enforcement authorities worldwide.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Prohibited content -->
+    <div class="card">
+      <h2>📛 Prohibited behavior & content</h2>
+      <p>The following activities are strictly forbidden on 12 Testers App:</p>
+      <ul>
+        <li>Any depiction, discussion, or promotion of child sexual abuse (real, simulated, or illustrated).</li>
+        <li>Grooming, soliciting minors for sexual acts, or sharing contact information to exploit children.</li>
+        <li>Sexually explicit language or imagery involving anyone under 18 years of age.</li>
+        <li>Links to external websites or groups that contain CSAE material.</li>
+        <li>Using the app to arrange real-world meetings with minors for inappropriate purposes.</li>
+      </ul>
+      <p>We use a combination of automated filters (based on keywords and image hashing) and human moderation. All user-generated content – including feedback text, screenshots, profile images, and app listings – is subject to review.</p>
+    </div>
+
+    <!-- Reporting mechanism -->
+    <div class="card">
+      <h2>🚨 How to report child safety concerns</h2>
+      <p>Users, parents, or any concerned person can report suspected child exploitation or unsafe interactions through multiple channels:</p>
+      <div class="grid-2">
+        <div class="info-box">
+          <strong>📱 In-app reporting</strong>
+          <p style="margin-top: 8px;">Every app listing, user profile, and feedback item includes a <strong>“Report”</strong> button. Tap it and select <strong>“Child safety”</strong> as the reason. Reports go directly to our safety team.</p>
+        </div>
+        <div class="info-box">
+          <strong>✉️ Email reporting</strong>
+          <p style="margin-top: 8px;">Send details (screenshots, usernames, description) to <br> <strong style="color:var(--accent);">nadeemgamer180@gmail.com</strong> with subject: <em>“Child Safety Report”</em>.</p>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>🔒 Confidentiality & anonymity:</strong> You may report anonymously. We will treat every report with the highest urgency and confidentiality. Our goal is to respond within <strong>24 hours</strong> for critical issues.
+      </div>
+    </div>
+
+    <!-- Compliance and authorities -->
+    <div class="card">
+      <h2>⚖️ Compliance with laws & reporting to authorities</h2>
+      <p>We comply with all applicable child protection laws in every region we operate, including but not limited to:</p>
+      <ul>
+        <li><strong>United States:</strong> PROTECT Act, 18 U.S.C. § 2256 (CSAM definitions), and mandatory reporting to NCMEC.</li>
+        <li><strong>European Union:</strong> GDPR (age of consent 16/13), EU Directive 2011/93/EU on combating child sexual abuse.</li>
+        <li><strong>India:</strong> Information Technology Act, 2000 (Section 67B) – Punishment for publishing or transmitting material depicting children in sexually explicit act.</li>
+        <li><strong>UK / Australia / Canada:</strong> Local mandatory reporting requirements.</li>
+      </ul>
+      <p>Upon confirmation of any CSAE material, we will immediately:</p>
+      <ol>
+        <li>Preserve all relevant data (logs, user info, timestamps).</li>
+        <li>File a report with <strong>NCMEC’s CyberTipline</strong> (or the equivalent local authority).</li>
+        <li>Provide full cooperation to law enforcement for investigation.</li>
+      </ol>
+    </div>
+
+    <!-- Designated point of contact -->
+    <div class="card">
+      <h2>📞 Designated contact for child safety matters</h2>
+      <p>Google Play requires a point of contact who is ready to discuss our CSAE prevention practices. For all child safety inquiries, legal requests, or reporting, please use:</p>
+      <div class="contact-block">
+        <div class="contact-info">
+          <strong>Nadeem Gaming Studio</strong><br>
+          Email: <a href="mailto:nadeemgamer180@gmail.com">nadeemgamer180@gmail.com</a><br>
+          Response time: <strong>within 48 hours</strong> (emergencies: 24h)
+        </div>
+        <a href="mailto:nadeemgamer180@gmail.com?subject=Child%20Safety%20Matter" class="btn">✉️ Contact Safety Team</a>
+      </div>
+      <p>This email address is the same as our developer account contact. We guarantee that a responsible representative will respond to any child safety inquiry and provide requested documentation or cooperation.</p>
+    </div>
+
+    <!-- Training and moderation -->
+    <div class="card">
+      <h2>🛡️ Prevention & moderation practices</h2>
+      <p>We implement proactive measures to prevent CSAE before it reaches users:</p>
+      <ul>
+        <li><strong>Automated scanning:</strong> Image content (profile pictures, uploaded screenshots) is hashed and compared against known CSAM databases (via industry-standard tools).</li>
+        <li><strong>Keyword filtering:</strong> In-app chat (if any) and feedback text is filtered for predatory language.</li>
+        <li><strong>Human review team:</strong> Trained moderators review flagged content and escalated reports.</li>
+        <li><strong>User education:</strong> We display safety tips and remind users to report suspicious behavior.</li>
+      </ul>
+      <p>We also require all developers and testers to agree to our Terms of Use that explicitly prohibit child exploitation. Violation results in permanent ban and possible legal referral.</p>
+    </div>
+
+    <!-- Age restriction & parent info -->
+    <div class="card">
+      <h2>👪 Age restriction & parental guidance</h2>
+      <p><strong>12 Testers App is not intended for children under 13 years of age.</strong> We do not knowingly collect personal information from children under 13. If we learn that a child under 13 has created an account, we will delete the account and all associated data immediately.</p>
+      <p>Parents or legal guardians who believe their child has accessed our app should contact us at <a href="mailto:nadeemgamer180@gmail.com" style="color:var(--accent);">nadeemgamer180@gmail.com</a>. We will assist in removing the child's information and provide guidance.</p>
+    </div>
+
+    <!-- Transparency & updates -->
+    <div class="card">
+      <h2>📄 Policy updates & transparency</h2>
+      <p>This Child Safety Standards document is publicly available and will be updated whenever we enhance our safety measures or when legal requirements change. The “Last updated” date below indicates the latest revision. We do not allow external editing of this page; it is hosted and controlled exclusively by Nadeem Gaming Studio.</p>
+      <p>For any questions regarding this policy, please contact our designated safety contact.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> Nadeem Gaming Studio — 12 Testers App</div>
+    <div>Last updated: <strong id="lastUpdated"></strong> | <a href="mailto:nadeemgamer180@gmail.com" style="color:var(--muted);">nadeemgamer180@gmail.com</a></div>
+  </footer>
+</div>
+
+<script>
+  // Dynamic date insertion
+  const today = new Date();
+  const formattedDate = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  document.getElementById('lastUpdated').textContent = formattedDate;
+  document.getElementById('year').textContent = today.getFullYear();
+</script>
+</body>
+</html>
